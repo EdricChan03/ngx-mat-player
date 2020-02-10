@@ -1,6 +1,50 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "ngx-mat-audio-player-lib": {
+      "projectType": "library",
+      "root": "projects/ngx-mat-audio-player-lib",
+      "sourceRoot": "projects/ngx-mat-audio-player-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-mat-audio-player-lib/tsconfig.lib.json",
+            "project": "projects/ngx-mat-audio-player-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-mat-audio-player-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-mat-audio-player-lib/src/test.ts",
+            "tsConfig": "projects/ngx-mat-audio-player-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-mat-audio-player-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-mat-audio-player-lib/tsconfig.lib.json",
+              "projects/ngx-mat-audio-player-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "cli": {
+    "analytics": "21152965-ee0e-479d-a329-2fb2a6b116ae"
+  },
+  "defaultProject": "ngx-mat-audio-player-lib"
 }

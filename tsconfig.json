@@ -17,7 +17,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-mat-audio-player-lib": [
+        "dist/ngx-mat-audio-player-lib/ngx-mat-audio-player-lib",
+        "dist/ngx-mat-audio-player-lib"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
