@@ -1,9 +1,25 @@
 {
   "name": "ngx-mat-audio-player-lib",
   "version": "0.0.1",
+  "description": "Angular Material audio picker component",
+  "keywords": ["angular", "angular library", "angular material", "angular component", "audio player"],
+  "homepage": "https://edricchan03.github.io/ngx-mat-player/audio",
+  "bugs": "https://github.com/EdricChan03/ngx-mat-player/issues",
+  "license": "MIT",
+  "author": {
+    "email": "edric.chan.1997@gmail.com",
+    "name": "Edric Chan",
+    "url": "https://edricchan03.github.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EdricChan03/ngx-mat-player.git",
+    "directory": "packages/ngx-mat-audio-player-lib"
+  },
   "peerDependencies": {
     "@angular/common": "^9.0.0",
     "@angular/core": "^9.0.0",
+    "@angular/material": "^9.0.0",
     "tslib": "^1.10.0"
   }
 }
