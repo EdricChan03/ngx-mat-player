@@ -1,5 +1,5 @@
 {
-  "name": "ngx-mat-audio-player-lib",
+  "name": "ngx-mat-audio-player",
   "version": "0.0.1",
   "description": "Angular Material audio picker component",
   "keywords": ["angular", "angular library", "angular material", "angular component", "audio player"],
