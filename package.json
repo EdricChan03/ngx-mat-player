@@ -7,7 +7,12 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "ng deploy",
+    "action:deploy": "ng deploy --name $GITHUB_ACTOR --email $GITHUB_ACTOR@users.noreply.github.com --no-silent",
+    "action:deployDryRun": "ng deploy --name=$GITHUB_ACTOR --email=$GITHUB_ACTOR@users.noreply.github.com --no-silent --no-build",
+    "action:e2e": "ng e2e --protractor-config=projects/rss-reader/e2e/protractor-ci.conf.js",
+    "action:test": "ng test --no-watch --no-progress --code-coverage --browsers=ChromeHeadlessCI"
   },
   "private": true,
   "dependencies": {
