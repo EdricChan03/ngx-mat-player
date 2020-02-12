@@ -1,6 +1,6 @@
 ---
 name: Troubleshooting
-about: Request for help on an issue you're facing with the library/libraries.
+about: Request for help on an issue you're facing with the library/libraries
 title: "[Troubleshooting] <troubleshooting request title>"
 labels: 'type: troubleshooting'
 assignees: ''
