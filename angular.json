@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/ngx-mat-audio-player-lib",
       "sourceRoot": "projects/ngx-mat-audio-player-lib/src",
-      "prefix": "lib",
+      "prefix": "mat",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
