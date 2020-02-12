@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches:
+      # Only allow the workflow to be run on the master branch
+      - master
+
+jobs:
+  test:
+    name: App/Library linting/testing
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup NodeJS LTS
+        # The action uses v10.x by default
+        uses: actions/setup-node@v1
+      - name: Cache node modules
+        uses: actions/cache@v1
+        id: node_modules_cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}-
+            ${{ runner.os }}-node_modules-
+            ${{ runner.os }}-
+      - name: Install dependencies
+        # Skip this step if a cache hit occurs on the key
+        if: steps.node_modules_cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Lint app/libraries
+        run: npm run lint
+      - name: Test app/libraries
+        run: npm run action:test
+  build:
+    name: Build libraries
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup NodeJS LTS
+      uses: actions/setup-node@v1
+    - name: Cache node modules
+      uses: actions/cache@v1
+      id: node_modules_cache
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}-
+          ${{ runner.os }}-node_modules-
+          ${{ runner.os }}-
+    - name: Install dependencies
+      # Skip this step if a cache hit occurs on the key
+      if: steps.node_modules_cache.outputs.cache-hit != 'true'
+      run: npm ci
+    - name: Build library
+      # TODO: Add more libraries to build
+      run: |
+        npm run build ngx-mat-audio-player-lib
