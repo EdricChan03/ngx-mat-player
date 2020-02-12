@@ -16,6 +16,8 @@ jobs:
       - name: Setup NodeJS LTS
         # The action uses v10.x by default
         uses: actions/setup-node@v1
+      - name: Setup Angular problem matchers
+        uses: EdricChan03/angular-problem-matchers-action
       - name: Cache node modules
         uses: actions/cache@v1
         id: node_modules_cache
@@ -42,6 +44,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Setup NodeJS LTS
       uses: actions/setup-node@v1
+    - name: Setup Angular problem matchers
+      uses: EdricChan03/angular-problem-matchers-action
     - name: Cache node modules
       uses: actions/cache@v1
       id: node_modules_cache
